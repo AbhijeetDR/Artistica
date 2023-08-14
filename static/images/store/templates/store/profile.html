@@ -1,0 +1,31 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<h3>Hello , {{request.user.customer}}</h3>
+<h4>Orders placed</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Date-ordered</th>
+            <th scope="col">is Complete</th>
+            <th scope="col">transaction_id</th>
+            <th scope="col">Total amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td><a class="btn btn-warning btn-sm" href="{% url 'order_summary' order.id %}">View Details</a></td>
+            <td>{{order.date_ordered}}</td>
+            <td>{{order.complete}}</td>
+            <td>{{order.transaction_id}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock content %}
+

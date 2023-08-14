@@ -1,0 +1,27 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+<h1>
+    {{item.name}}
+</h1>
+<div class="row">
+    <div class="col">
+        <div class="box-element">
+            <img class="" src="{{ item.imageURL }}">
+        </div>
+
+    </div>
+    <div class="col">
+        <h1>Specification</h1>
+
+            {{item.description}}
+
+    </div>
+
+</div>
+<hr>
+
+<div>
+    <button data-product="{{item.id}}"  data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+</div>
+{% endblock content %}
